@@ -186,7 +186,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        test: [/\.bmp$/, /\.gif$/, /\.webp$/, /\.jpe?g$/, /\.png$/],
         // 自动选择导出为单独文件还是url形式
         type: 'asset',
         parser: {
