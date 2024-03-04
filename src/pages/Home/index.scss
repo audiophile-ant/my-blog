@@ -1,8 +1,70 @@
 .AppBox {
-  font-family: 'dengxian';
+  font-family: 'fangsong';
   background-position: center 0;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  // filter: opacity(0.9);
+  transition: background-image 1s ease-in-out;
+}
+
+.bg0am {
+  background-image: url(@/assets/images/0am.webp);
+}
+
+.bg0pm {
+  background-image: url(@/assets/images/0pm.webp);
+}
+
+.bg0dark {
+  background-image: url(@/assets/images/0dark.webp);
+}
+
+.bg1am {
+  background-image: url(@/assets/images/1am.webp);
+}
+
+.bg1pm {
+  background-image: url(@/assets/images/1pm.webp);
+}
+
+.bg1dark {
+  background-image: url(@/assets/images/1dark.webp);
+}
+
+.bg2am {
+  background-image: url(@/assets/images/2am.webp);
+}
+
+.bg2pm {
+  background-image: url(@/assets/images/2pm.webp);
+}
+
+.bg2dark {
+  background-image: url(@/assets/images/2dark.webp);
+}
+
+.bg3am {
+  background-image: url(@/assets/images/3am.webp);
+}
+
+.bg3pm {
+  background-image: url(@/assets/images/3pm.webp);
+}
+
+.bg3dark {
+  background-image: url(@/assets/images/3dark.webp);
+}
+
+.bg4am {
+  background-image: url(@/assets/images/4am.webp);
+}
+
+.bg4pm {
+  background-image: url(@/assets/images/4pm.webp);
+}
+
+.bg4dark {
+  background-image: url(@/assets/images/4dark.webp);
 }
 

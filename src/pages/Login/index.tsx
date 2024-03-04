@@ -1,8 +1,14 @@
+import { useLocalStorageState, useMount, useTitle } from 'ahooks';
 import classNames from 'classnames'
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowLeft } from 'react-icons/fa6';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-import {styleChange} from '@/utils'
+import { selectMode, selectTimeOfDay } from '@/redux/selectors';
+import { changeMode } from '@/redux/slices/mode';
+import { styleChange } from '@/utils/hooks'
+import { modeMap, modeMapArr } from '@/utils/timeMap';
 
 import styles from './index.scss'
 
@@ -10,8 +16,27 @@ const Login: React.FC = () => {
   const [showLogin, setShowLogin] = useState<Boolean>(false)
   const [showSignUp, setShowSignUp] = useState<Boolean>(false)
 
-  const submit = () => {
+  const nav = useNavigate()
 
+  const dispatch = useDispatch()
+
+  const [localMode] = useLocalStorageState('localMode');
+  const mode = useSelector(selectMode)
+  const time = useSelector(selectTimeOfDay)
+  const bgName = `${mode}${time}`
+  const bodyStyle = window.document.getElementsByTagName('body')[0].style;
+
+
+  useTitle('浮生六记 | 登录')
+
+  useMount(() => {
+    if (localMode !== undefined) {
+      dispatch(changeMode?.(localMode));
+    }
+  })
+
+  const submit = () => {
+    nav('/home')
   }
 
   const openForm = (way: string) => {
@@ -42,6 +67,20 @@ const Login: React.FC = () => {
       styleChange({ className: 'signUpForm', props: [['display', 'none']] })
     }, 500);  
   }
+
+  useEffect(() => {
+    let timeIndex = 0
+    switch (time) {
+      case 'am': timeIndex = 0; break;
+      case 'pm': timeIndex = 1; break;
+      case 'dark': timeIndex = 2; break;
+      default: timeIndex = 0; break;
+    }
+    for (const type of modeMapArr) {
+      bodyStyle.setProperty(type, modeMap[type as keyof typeof modeMap][timeIndex!]);
+    }
+
+  },[time])
   
   return (
     <div className={styles.loginPage}>
@@ -70,12 +109,12 @@ const Login: React.FC = () => {
           </div>
           <div className={styles.imgBox}>
             <div className={styles.background}>
-               <img src={require('@/assets/images/login.webp')} alt="" /> 
+               <img src={require(`@/assets/images/${bgName}.webp`)} alt="" /> 
             </div>
           </div>
           <div className={classNames(styles.form, {[styles.active]: showLogin, [styles.signUpActive]: showSignUp})}>
             <div className={styles.formImg}>
-              <img src={require('@/assets/images/login.webp')} alt="" />
+              <img src={require(`@/assets/images/${bgName}.webp`)} alt="" />
             </div>
             <div className={styles.loginForm}>
               <div className={styles.back} onClick={goBack}>
@@ -101,7 +140,7 @@ const Login: React.FC = () => {
         </div>
       </div>
       <div className={styles.visitLogin}>
-        <button className={styles.loginBtn}>
+        <button className={styles.loginBtn} onClick={submit}>
           <span/>
           <span/>
           <span/>

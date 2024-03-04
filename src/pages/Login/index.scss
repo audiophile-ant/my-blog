@@ -1,8 +1,8 @@
+@import '../../styles/base.scss';
+
 * {
-  margin: 0 auto;
   padding: 0;
   text-align: center;
-  font-family: 'dengxian'
 }
 
 .loginPage {
@@ -10,12 +10,13 @@
   width: 100%;
   display: flex;
   position: absolute;
-  background: linear-gradient(#02386e, #011e3a);
+  background: linear-gradient($themeColor, $themeColor1);
   >h1 {
     position: absolute;
     left: 50%;
     top: 50px;
     font-family: 'kaiti';
+    font-size: 42px;
     color: #fff;
     transform: translateX(-50%);
     letter-spacing: 2px;
@@ -24,16 +25,18 @@
     display: flex;
     align-self: center;
     width: 100%;
+    font-family: 'dengxian';
     .loginBox {
       position: relative;
-      width: 640px;
+      width: 800px;
       min-height: 280px;
+      margin: 0 auto;
       .loginInfo {
         position: absolute;
         width: 100%;
-        height: 340px;
+        height: 425px;
         z-index: 1;
-        top: -40px;
+        top: -50px;
         .infoLogin {
           position: relative;
           float: left;
@@ -47,17 +50,18 @@
       }
       .imgBox {
         position: relative;
-        top: -40px;
-        width: 640px;
-        height: 340px;
+        top: -50px;
+        width: 800px;
+        height: 425px;
         overflow: hidden;
+        border-radius: 20px;
         box-shadow: 0px 0px 30px -10px rgba(255, 255, 255, 0.5);
       }
       .background {
         position: absolute;
-        width: 900px;
-        top: -90px;
-        left: -140px;
+        width: 1125px;
+        top: -112.5px;
+        left: -175px;
         img {
           width: 100%;
           opacity: 0.3;
@@ -78,11 +82,11 @@
   width: 70%;
   box-sizing: border-box;
   border-radius: 15px;
-  margin-top: 70px;
+  margin: 100px auto 0;
   padding: 15px 20px;
   color: #fff;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   p {
     margin-top: 15px;
     line-height: 1.5;
@@ -101,7 +105,7 @@
   width: 100px;
   border-radius: 3px;
   background-color: transparent;
-  color: #03e9f4;
+  color: $buttonColor;
   margin-top: 10px;
   font-weight: 600;
   font-size: 18px;
@@ -120,22 +124,23 @@
 .signUpBtn:hover,
 .loginBtn:hover {
   color: #fff;
-  background-color: #03e9f4;
+  background-color: $buttonColor;
   border-radius: 5px;
-  box-shadow: 0 0 5px #03e9f4,
-            0 0 25px #03e9f4,
-            0 0 50px #03e9f4,
-            0 0 100px #03e9f4;
+  box-shadow: 0 0 5px $buttonColor,
+            0 0 25px $buttonColor,
+            0 0 50px $buttonColor,
+            0 0 100px $buttonColor;
 }
 
 
 .form {
   position: absolute;
   overflow: hidden;
-  top: -40px;
+  top: -50px;
   left: 0px;
-  width: 320px;
-  height: 340px;
+  width: 400px;
+  height: 425px;
+  border-radius: 20px;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;
@@ -143,9 +148,9 @@
   transition: all 0.5s;
   .formImg {
     position: absolute;
-    width: 900px;
-    top: -90px;
-    left: -140px;
+    width: 1125px;
+    top: -112.5px;
+    left: -175px;
     img {
       width: 100%;
       // opacity: 0.3;
@@ -161,19 +166,19 @@
     position: absolute;
     opacity: 0;
     display: none;
-    width: 320px;
+    width: 400px;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -ms-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition: all 0.5s;
     input {
-      padding: 15px 5px;
-      margin-left: 10px;
-      margin-top: 30px;
-      width: 260px;
+      padding: 20px 5px;
+      margin-top: 40px;
+      width: 300px;
       border: none;
       border-radius: 3px;
+      font-size: 16px;
       text-align: left;
       color: #444;
       background-color: rgba(255, 255, 255, 0.75);
@@ -181,36 +186,40 @@
     h2 {
       margin-top: 90px;
       font-weight: 600;
-      color: #ccc;
+      font-size: 28px;
+      color: #fff;
       letter-spacing: 6px;
     }
     .back {
-      font-size: 16px;
-      color: #ccc;
+      color: #fff;
       position: relative;
       float: left;
-      margin: 10px;
+      margin: 13px;
       margin-left: 20px;
       cursor: pointer;
       .goBack {
-        font-size: 24px
+        font-size: 28px
       }
     }
     .loginBtn {
-      margin-top: 60px;
+      margin-top: 75px;
+      width: 125px;
+      font-size: 20px;
     }
   }
   .signUpForm {
     float: left;
     h2 {
-      margin-top: 50px;
-      margin-bottom: 20px;
+      margin-bottom: 0;
+      margin-top: 60px;
     }
     input {
-      margin-top: 15px;
+      margin-top: 23px;
     }
     .signUpBtn {
-      margin-top: 30px;
+      margin-top: 35px;
+      width: 125px;
+      font-size: 20px;
     }
   }
 }
@@ -221,17 +230,18 @@
   left: 50%;
   color: #fff;
   transform: translateX(-50%);
-  letter-spacing: 2px;
   .loginBtn {
     font-family: 'kaiti';
     width: 150px;
-    font-size: 20px;
+    height: 50px;
+    font-size: 24px;
+    letter-spacing: 4px;
     span:nth-child(1) {
       top: 0;
       left: -100%;
       width: 100%;
       height: 2px;
-      background: linear-gradient(90deg, transparent, #03e9f4);
+      background: linear-gradient(90deg, transparent, $buttonColor);
       animation: btn-anim1 1s linear infinite;
   }
   @keyframes btn-anim1 {
@@ -248,7 +258,7 @@
     right: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #03e9f4);
+    background: linear-gradient(180deg, transparent, $buttonColor);
     animation: btn-anim2 1s linear infinite;
     animation-delay: .25s
   }
@@ -267,7 +277,7 @@
     right: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(270deg, transparent, #03e9f4);
+    background: linear-gradient(270deg, transparent, $buttonColor);
     animation: btn-anim3 1s linear infinite;
     animation-delay: .5s
   }
@@ -286,7 +296,7 @@
     left: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(360deg, transparent, #03e9f4);
+    background: linear-gradient(360deg, transparent, $buttonColor);
     animation: btn-anim4 1s linear infinite;
     animation-delay: .75s
   }
@@ -305,8 +315,8 @@
 .active,
 .signUpActive {
   box-shadow: 0px 0px 30px -10px rgba(255, 255, 255, 0.5);
-  height: 420px;
-  top: -80px;
+  height: 525px;
+  top: -100px;
   left: 0px;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
@@ -315,7 +325,7 @@
   transition: all 0.5s;
   z-index: 2;
   .formImg {
-    top: -50px;
+    top: -62.5px;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -ms-transition: all 0.5s;
@@ -325,9 +335,9 @@
 }
 
 .signUpActive {
-  left: 320px;
+  left: 400px;
   .formImg {
-    left: -460px;
+    left: -575px;
   }
 }
 
